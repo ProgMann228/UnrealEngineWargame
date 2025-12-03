@@ -12,7 +12,8 @@ AMyPawn::AMyPawn()
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root")); 
-	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	
+	/*Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	Mesh->SetupAttachment(RootComponent);
 
 
@@ -22,7 +23,7 @@ AMyPawn::AMyPawn()
 		Mesh->SetStaticMesh(CubeVisualAsset.Object);
 		Mesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 	}
-
+	*/
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(RootComponent);
 	Camera->SetRelativeLocation(FVector(0.f, 0.f, 800.f));
@@ -61,12 +62,12 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void AMyPawn::MoveHorizontal(float Value)
 {
-	CurrentVelocity.X = Value * MoveSpeed;
+	CurrentVelocity.Y = Value * MoveSpeed;
 }
 
 void AMyPawn::MoveVertical(float Value)
 {
-	CurrentVelocity.Y = Value * MoveSpeed;
+	CurrentVelocity.X = Value * MoveSpeed;
 }
 
 
